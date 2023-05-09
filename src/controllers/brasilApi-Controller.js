@@ -1,15 +1,23 @@
 'use strict';
 
+const express = require('express');
 const axios = require('axios')
 const utils = require('../helpers/util');
+const app = express();
+
+app.set('view engine', 'ejs');
 
 exports.getBancos = async (req, res, next) => {
-    try {
+
+  try {
       const urlApi = 'https://brasilapi.com.br/api/banks/v1';
   
       axios.defaults.timeout = 5000; // 5 segundos
       const response = await axios.get(urlApi);
-      res.json(response.data);
+            
+      //# Chamada para a pagina
+      //#-------------------------------------------
+      res.render('bancos', { data: response.data });
 
     } catch (error) {
         console.error(utils.endpointError(error));
