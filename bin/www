@@ -4,7 +4,7 @@
 // ? SERVIDOR WEB
 // ?=========================================================================
 const app = require('../app');
-const debug = require('debug')('nodewebapi:server');
+const debug = require('debug')('NodeWebAPISite:server');
 const http = require('http');
 
 // Swagger
